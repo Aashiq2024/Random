@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner</title>
+    <style>
+      #banner{
+        text-align: center;
+        background-color: azure;
+        height: 200px;
+        font-family: 'Courier New', Courier, monospace;
+        width: 30%;
+        margin: auto;
+      }
+    </style>
+</head>
+<body>
+    <section id="banner">
+            <h1>Random magic</h1>
+    </section>
+    <script>
+    var products = [
+        { id: 1, name: "Iphone 11", price: "Rs.20,000", img: "download.png" },
+        { id: 2, name: "Iphone 12", price: "Rs.30,000", img: "download.png" },
+        { id: 3, name: "Iphone 13", price: "Rs.40,000", img: "download.png" },
+        { id: 4, name: "Iphone 14", price: "Rs.50,000", img: "download.png" },
+        { id: 5, name: "Iphone 15", price: "Rs.60,000", img: "download.png" },
+        { id: 6, name: "Iphone 16", price: "Rs.70,000", img: "download.png" },
+        { id: 7, name: "Iphone 17", price: "Rs.80,000", img: "download.png" },
+        { id: 8, name: "Iphone 18", price: "Rs.90,000", img: "download.png" }
+    ];
+
+    function Banner() {
+        const randomindex = Math.floor(Math.random() * products.length);
+        const bannerdata = products[randomindex];
+        const bannerelement = document.getElementById('banner');
+        const arrayDiv = document.createElement("div");
+        arrayDiv.className = "product";
+        arrayDiv.innerHTML = `
+            <h2>${bannerdata.name}</h2>
+            <p>Price: ${bannerdata.price}</p>
+            <img src="${bannerdata.img}">
+            <button onclick="addToCart(${bannerdata.id})">Add to cart</button>
+        `;
+
+        bannerelement.appendChild(arrayDiv);
+    }
+    Banner();
+</script>
+
+</body>
+</html>
